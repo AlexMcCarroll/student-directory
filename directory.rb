@@ -30,7 +30,7 @@ def input_students
   end
 
   students
-  
+
 end
 
 def print_header
@@ -39,7 +39,7 @@ def print_header
 end
 
 def print_body(names)
-  names.each do |x| puts "#{x[:name]} (#{x[:cohort]} cohort)"
+  names.each_with_index do |x, index| puts "#{index + 1}. #{x[:name]} (#{x[:cohort]} cohort)"
   end
 end
 
