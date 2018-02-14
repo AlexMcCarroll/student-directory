@@ -48,10 +48,11 @@ def print_header
 end
 
 def print_body(names)
-  names.each do |x| puts "#{x[:name]}
-    #{x[:cohort]} cohort
+  names.each do |x| puts "#{x[:name].center(50)}
+    #{x[:cohort].capitalize} cohort
     Hobbies: #{x[:hobbies]}
     DOB: #{x[:dob]}"
+    puts ""
   end
 end
 
