@@ -1,26 +1,4 @@
-
 =begin
-def input_students
-  puts "Please enter the names of the students"
-  puts "To finish, just hit return twice"
-
-  students = []
-
-  name = gets.chomp
-
-  while !name.empty? do
-
-    students << {name: name, cohort: :november}
-    puts "Now we have #{students.count} students"
-
-    name = gets.chomp
-  end
-
-  students
-
-end
-=end
-
 students = [
   {name: "Dr. Hannibal Lecter", cohort: :november},
   {name: "Darth Vader", cohort: :november},
@@ -34,6 +12,30 @@ students = [
   {name: "Joffrey Baratheon", cohort: :november},
   {name: "Norman Bates", cohort: :november}
 ]
+=end
+def input_students
+  puts "Please enter the names, hobbies, DOB of the students"
+  puts "To finish, click enter 4 times"
+
+  students = []
+
+  name = gets.chomp
+  hobbies = gets.chomp
+  dob = gets.chomp
+
+  while !name.empty? do
+
+    students << {name: name, cohort: :november, hobbies: hobbies, dob: dob}
+    puts "Now we have #{students.count} students"
+
+    name = gets.chomp
+    hobbies = gets.chomp
+    dob = gets.chomp
+  end
+
+  students
+
+end
 
 def print_header
   puts "The Students of Villans Academy"
@@ -41,8 +43,7 @@ def print_header
 end
 
 def print_body(names)
-  names.each_with_index do |x, index| puts "#{index + 1}. #{x[:name]}
-    (#{x[:cohort]} cohort)"
+  names.each do |x| puts "#{x[:name]} (#{x[:cohort]} cohort)"
   end
 end
 
@@ -50,6 +51,7 @@ def print_footer(names)
   puts "Overall we have #{names.count} great students"
 end
 
+students = input_students
 print_header
 print_body(students)
 print_footer(students)
