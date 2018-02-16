@@ -7,22 +7,21 @@ def input_students
 
   while true do
 
-    name = gets.chomp
+  name = gets.chomp
+  break if name.empty? == true
 
-    if name.empty? == true
-      break
-    end
+  cohort = gets.chomp
+  cohort = 'n/a' if cohort.empty? == true
 
-    cohort = gets.chomp
-    hobbies = gets.chomp
-    dob = gets.chomp
+  hobbies = gets.chomp
+  hobbies = 'n/a' if hobbies.empty? == true
 
-    students << {name: name, cohort: cohort, hobbies: hobbies, dob: dob}
-    puts "Now we have #{students.count} students"
+  dob = gets.chomp
+  dob = 'n/a' if dob.empty? == true
 
-    if cohort.empty?
-      cohort = "November"
-    end
+  students << {name: name, cohort: cohort, hobbies: hobbies, dob: dob}
+  puts "Now we have #{students.count} students"
+
   end
 
   students
