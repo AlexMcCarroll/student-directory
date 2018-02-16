@@ -1,28 +1,28 @@
 
 def input_students
   puts "Please enter the names, hobbies, DOB of the students"
-  puts "To finish, click enter 4 times"
+  puts "To finish, click enter twice"
 
   students = []
 
-  name = gets.chomp
-  cohort = gets.chomp
-  hobbies = gets.chomp
-  dob = gets.chomp
-
-  while !name.empty? do
-
-    students << {name: name, cohort: cohort, hobbies: hobbies, dob: dob}
-    puts "Now we have #{students.count} students"
+  while true do
 
     name = gets.chomp
+
+    if name.empty? == true
+      break
+    end
+
     cohort = gets.chomp
     hobbies = gets.chomp
     dob = gets.chomp
 
+    students << {name: name, cohort: cohort, hobbies: hobbies, dob: dob}
+    puts "Now we have #{students.count} students"
+
     if cohort.empty?
       cohort = "November"
-      end
+    end
   end
 
   students
@@ -66,7 +66,7 @@ def print_footer(names)
   puts "Overall we have #{names.count} great students"
 end
 
-input_students
+students = input_students
 print_header
 print_body(students)
 print_footer(students)
