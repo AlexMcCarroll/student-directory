@@ -1,5 +1,4 @@
 
-=begin
 def input_students
   puts "Please enter the names, hobbies, DOB of the students"
   puts "To finish, click enter 4 times"
@@ -7,24 +6,30 @@ def input_students
   students = []
 
   name = gets.chomp
+  cohort = gets.chomp
   hobbies = gets.chomp
   dob = gets.chomp
 
   while !name.empty? do
 
-    students << {name: name, cohort: :november, hobbies: hobbies, dob: dob}
+    students << {name: name, cohort: cohort, hobbies: hobbies, dob: dob}
     puts "Now we have #{students.count} students"
 
     name = gets.chomp
+    cohort = gets.chomp
     hobbies = gets.chomp
     dob = gets.chomp
+
+    if cohort.empty?
+      cohort = "November"
+      end
   end
 
   students
 
 end
-=end
 
+=begin
 students = [
   {name: "Dr. Hannibal Lecter", cohort: :november,
     hobbies: "Cannibalism", dob: "1933"},
@@ -41,6 +46,7 @@ students = [
 #  {name: "The Joker", cohort: :november},
 #  {name: "Joffrey Baratheon", cohort: :november},
 #  {name: "Norman Bates", cohort: :november}
+=end
 
 def print_header
   puts "The Students of Villans Academy"
@@ -60,6 +66,7 @@ def print_footer(names)
   puts "Overall we have #{names.count} great students"
 end
 
+input_students
 print_header
 print_body(students)
 print_footer(students)
