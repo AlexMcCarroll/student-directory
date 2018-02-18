@@ -68,9 +68,11 @@ def sort_by_cohort(names)
 end
 
 def print_footer(names)
-  if names.count == 1
+  if names.count == 0
+    puts "There are no students!"
+  elsif names.count == 1
     puts "Overall we have #{names.count} great student"
-  else
+  elsif
     puts "Overall we have #{names.count} great students"
   end
 end
