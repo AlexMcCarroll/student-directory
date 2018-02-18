@@ -1,6 +1,6 @@
 
 def input_students
-  puts "Please enter the names, hobbies, DOB of the students"
+  puts "Please enter the names, cohort, hobbies, DOB of the students"
   puts "To finish, click enter twice"
 
   students = []
@@ -61,6 +61,12 @@ def print_body(names)
   end
 end
 
+def sort_by_cohort(names)
+  print "Type in the cohort month you want: "
+  cohort_input = gets.chomp
+  names.map { |key, value| puts key[:name] if key[:cohort] == cohort_input }
+end
+
 def print_footer(names)
   puts "Overall we have #{names.count} great students"
 end
@@ -68,4 +74,5 @@ end
 students = input_students
 print_header
 print_body(students)
+sort_by_cohort(students)
 print_footer(students)
