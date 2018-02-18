@@ -7,16 +7,16 @@ def input_students
 
   while true do
 
-  name = gets.chomp
+  name = gets.strip
   break if name.empty? == true
 
-  cohort = gets.chomp
+  cohort = gets.strip
   cohort = 'n/a' if cohort.empty? == true
 
-  hobbies = gets.chomp
+  hobbies = gets.strip
   hobbies = 'n/a' if hobbies.empty? == true
 
-  dob = gets.chomp
+  dob = gets.strip
   dob = 'n/a' if dob.empty? == true
 
   students << {name: name, cohort: cohort, hobbies: hobbies, dob: dob}
